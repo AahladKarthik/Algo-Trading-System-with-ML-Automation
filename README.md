@@ -1,24 +1,21 @@
-# Algo-Trading-System-with-ML-Automation
-This Python module provides the `GoogleSheetsManager` class to authenticate with Google Sheets via a service account, log trades, and update PnL summaries. It appends trade records, creates or updates summary sheets, and uses robust logging for easy integration into automated trading workflows.
+This Python module provides the GoogleSheetsManager class for seamless integration with Google Sheets, enabling automated trade logging and PnL (Profit and Loss) tracking within algorithmic trading workflows.
 
-This module provides a GoogleSheetsManager class for connecting to Google Sheets via a service account and performing trade logging and PnL summary updates.
+Key Capabilities
 
-Key Features:
+-Google Sheets Authentication – Connects securely using a service account credentials file and gspread with OAuth2 scopes for Sheets and Drive access.
 
-    Google Sheets Authentication – Authenticates using a service account JSON credentials file and gspread with OAuth2 scopes for Sheets and Drive access.
+-Automated Trade Logging – Appends trade data (timestamp, symbol, price, quantity, PnL, etc.) directly to the primary worksheet.
 
-    Trade Logging – Appends a single row of trade data (e.g., timestamp, symbol, price, quantity, PnL) to the first worksheet in a Google Sheet.
+-PnL Summary Management – Creates or updates a dedicated summary worksheet showing total PnL per symbol. Automatically generates the worksheet if it doesn’t exist.
 
-    PnL Summary Updating – Writes or updates a summary worksheet containing each trading symbol and its total PnL. Automatically creates the worksheet if it doesn’t exist.
+-Robust Error Handling & Logging – Leverages Python’s logging module for detailed success/error reporting, simplifying debugging in automated pipelines.
 
-    Error Handling & Logging – Uses Python’s logging module to log success and error messages, making it easy to track issues in automation workflows.
+Typical Workflow
 
-Typical Usage:
+Initialize the manager with the path to your service account credentials.
 
-    Initialize the manager with the path to the service account credentials file.
+-Run authenticate() to establish a connection with Google Sheets.
 
-    Call authenticate() to connect to Google Sheets.
+-Use log_trade() to record new trades in the log sheet.
 
-    Use log_trade() to append trade records to your log sheet.
-
-    Use update_summary_pnl() to write or refresh a consolidated PnL report.
+-Call update_summary_pnl() to generate or refresh a consolidated PnL report.
